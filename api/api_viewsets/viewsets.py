@@ -37,7 +37,7 @@ def register(request):
   access = refresh.access_token
 
   return Response({
-      'message': 'User registered successfully.',
+      'message': 'User registered successfully',
       'user': {
           'id': user.id,
       },
@@ -63,7 +63,7 @@ def verify(request):
     auth_header = request.headers.get('Authorization')
 
     if not auth_header or not auth_header.startswith('Bearer '):
-        return Response({'detail': 'Authorization header missing or malformed.'}, status=status.HTTP_401_UNAUTHORIZED)
+        return Response({'detail': 'Authorization header missing or malformed'}, status=statusHTTP_401_UNAUTHORIZED)
 
     token = auth_header.split(' ')[1]
 
@@ -84,7 +84,7 @@ def createUser(request):
   user = serializer.save()
 
   return Response({
-      'message': 'User registered successfully.',
+      'message': 'User registered successfully',
       'user': {
           'id': user.id,
       }
@@ -112,6 +112,6 @@ def deleteUser(request):
   try:
     user = User.objects.get(pk=user_id)
     user.delete()
-    return Response({"message": "User deleted successfully."}, status=status.HTTP_200_OK)
+    return Response({"message": "User deleted successfully"}, status=status.HTTP_200_OK)
   except User.DoesNotExist:
-    return Response({"error": "User not found."}, status=status.HTTP_404_NOT_FOUND)
+    return Response({"error": "User not found"}, status=status.HTTP_404_NOT_FOUND)
