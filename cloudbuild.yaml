@@ -30,3 +30,5 @@ steps:
       ]
 images:
   - "us-central1-docker.pkg.dev/neat-environs-468316-i2/django-backend/django-backend:$SHORT_SHA"
+options:
+  logging: CLOUD_LOGGING_ONLY
